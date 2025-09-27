@@ -1,0 +1,13 @@
+name: commit_checkout
+on: [push]
+jobs:
+  external-workflow:
+    runs-on: ubuntu-latest
+    steps:
+      - name: newCheckout
+        uses: actions/checkout@v3
+        with:
+          repository: abystoma/external-workflow
+          ref: branch
+      - name: Greetings
+        run: echo "$(<greeting.txt)"
